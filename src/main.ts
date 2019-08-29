@@ -1,12 +1,15 @@
-import * as core from '@actions/core';
+import * as core from "@actions/core";
 
 async function run() {
   try {
-    const myInput = core.getInput('myInput');
-    core.debug(`Hello ${myInput}`);
+    const helloInput = core.getInput("hello");
+    const msg = `Hello from ${helloInput}!`;
+    core.debug(msg);
   } catch (error) {
     core.setFailed(error.message);
   }
 }
 
 run();
+
+export default run;

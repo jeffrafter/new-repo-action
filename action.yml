@@ -1,10 +1,10 @@
-name: 'Node 12 Template Action'
-description: 'Get started with Node actions'
-author: 'GitHub'
+name: "New Repo Action"
+description: "Does a bunch of stuff when the repo is cloned from the template"
+author: "jeffrafter & spinecone & mikekavouras"
 inputs:
-  myInput:
-    description: 'Input to use'
-    default: 'world'
+  hello:
+    description: "Who wants to say hello?"
+    default: "spooky & stella"
 runs:
-  using: 'node12'
-  main: 'lib/main.js'
+  using: "node12"
+  main: "lib/main.ts"

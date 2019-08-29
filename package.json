@@ -3,10 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "description": "Node 12 template action",
-  "main": "lib/main.js",
+  "main": "lib/main.ts",
   "scripts": {
     "build": "tsc",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "repository": {
     "type": "git",
@@ -20,7 +21,8 @@
   "author": "GitHub",
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "^1.0.0"
+    "@actions/core": "^1.0.0",
+    "js-yaml": "^3.13.1"
   },
   "devDependencies": {
     "@types/jest": "^24.0.13",
