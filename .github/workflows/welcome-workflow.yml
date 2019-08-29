@@ -1,0 +1,16 @@
+name: "Welcome & Hello"
+on: [push]
+
+jobs:
+  build:
+    name: Welcome
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          fetch-depth: 1
+      - uses: ./.github/actions/welcome-action
+        with:
+          who-is-the-welcome-wagon: Octocat
+        id: welcome
+      - run: echo The time was ${{ steps.welcome.outputs.time }}

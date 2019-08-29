@@ -2,8 +2,8 @@ import * as core from "@actions/core";
 
 async function run() {
   try {
-    const helloInput = core.getInput("hello");
-    const msg = `Hello from ${helloInput}!`;
+    const welcomeInput = core.getInput("who-is-the-welcome-wagon");
+    const msg = `Welcome from ${welcomeInput}!`;
     core.debug(msg);
   } catch (error) {
     core.setFailed(error.message);

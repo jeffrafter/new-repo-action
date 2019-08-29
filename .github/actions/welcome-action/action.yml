@@ -1,0 +1,10 @@
+name: "welcome-action"
+description: "Welcomes the author when the repo is cloned from the template"
+author: "GitHub"
+inputs:
+  who-is-the-welcome-wagon:
+    description: "Who wants to say welcome?"
+    default: "spooky & stella"
+runs:
+  using: "node12"
+  main: "./welcome.ts"
