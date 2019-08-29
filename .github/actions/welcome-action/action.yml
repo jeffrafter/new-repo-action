@@ -7,4 +7,4 @@ inputs:
     default: "spooky & stella"
 runs:
   using: "node12"
-  main: "./welcome.ts"
+  main: "./welcome.js"
