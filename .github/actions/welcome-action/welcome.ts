@@ -5,6 +5,7 @@ async function run() {
     const welcomeInput = core.getInput("who-is-the-welcome-wagon");
     const msg = `Welcome from ${welcomeInput}!`;
     core.debug(msg);
+    core.setOutput("message", msg);
   } catch (error) {
     core.setFailed(error.message);
   }
