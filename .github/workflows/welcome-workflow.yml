@@ -27,5 +27,7 @@ jobs:
       - uses: ./.github/actions/welcome-action
         with:
           who-is-the-welcome-wagon: Octocat
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         id: welcome
       - run: echo The message was - ${{ steps.welcome.outputs.message }}

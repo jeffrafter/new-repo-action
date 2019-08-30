@@ -8,3 +8,6 @@ inputs:
 runs:
   using: "node12"
   main: "./welcome.js"
+branding:
+  icon: "book"
+  color: "green"
