@@ -17,14 +17,14 @@ async function run() {
 
     // https://help.github.com/en/articles/virtual-environments-for-github-actions#github_token-secret
     const client: github.GitHub = new github.GitHub(
-      process.env["GITHUB_TOKEN"]
+      process.env["GITHUB_TOKEN"] || ""
     );
 
     const nwo = process.env["GITHUB_REPOSITORY"] || "/";
     const [owner, repo] = nwo.split("/");
 
     // https://octokit.github.io/rest.js/#octokit-routes-issues
-    await client.issues.createIssue({
+    await client.issues.create({
       owner: owner,
       repo: repo,
       title: "Welcome",
