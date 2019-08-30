@@ -9,10 +9,6 @@ jobs:
       - uses: actions/checkout@v1
         with:
           fetch-depth: 1
-      - uses: actions/setup-node@v1
-        with:
-          node-version: "12"
-      - run: npm install
       - uses: ./.github/actions/welcome-action
         with:
           who-is-the-welcome-wagon: Octocat
