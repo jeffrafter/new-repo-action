@@ -13,6 +13,7 @@ jobs:
         with:
           node-version: "12"
       - run: npm install
+      - run: npm run build
       - uses: ./.github/actions/welcome-action
         with:
           who-is-the-welcome-wagon: Octocat
