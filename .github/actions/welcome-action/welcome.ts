@@ -20,11 +20,17 @@ async function run() {
     const ref = `refs/heads/${branchName}`;
     const sha = process.env["GITHUB_SHA"] || "";
 
-    let branch = await client.git.getRef({
-      owner,
-      repo,
-      ref
-    });
+    let branch: any = null;
+
+    try {
+      branch = await client.git.getRef({
+        owner,
+        repo,
+        ref
+      });
+    } catch {
+      // No-op, not found
+    }
     if (branch) {
       throw new Error(`Branch ${ref} already exists`);
     }
