@@ -15,7 +15,7 @@ async function run() {
 
     const nwo = process.env["GITHUB_REPOSITORY"] || "/";
     const [owner, repo] = nwo.split("/");
-    const suffix = "";
+    const suffix = "-2";
     const branchName = `submission${suffix}`;
     const ref = `refs/heads/${branchName}`;
     const sha = process.env["GITHUB_SHA"] || "";
@@ -54,15 +54,15 @@ async function run() {
 
     // Protect that branch
     // https://octokit.github.io/rest.js/#octokit-routes-repos-update-branch-protection
-    await client.repos.updateBranchProtection({
-      owner: owner,
-      repo: repo,
-      branch: branchName,
-      required_status_checks: null,
-      enforce_admins: true,
-      required_pull_request_reviews: null,
-      restrictions: null
-    });
+    // await client.repos.updateBranchProtection({
+    //   owner: owner,
+    //   repo: repo,
+    //   branch: branchName,
+    //   required_status_checks: null,
+    //   enforce_admins: true,
+    //   required_pull_request_reviews: null,
+    //   restrictions: null
+    // });
 
     // Create a pull request from master to that branch
     // https://octokit.github.io/rest.js/#octokit-routes-pulls
@@ -76,7 +76,7 @@ async function run() {
       base: ref // The submission branch is the base
     });
   } catch (error) {
-    core.setFailed(error.message);
+    core.setFailed(error.message + "\n\n" + error.stack);
   }
 }
 
