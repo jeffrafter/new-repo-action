@@ -6,13 +6,26 @@ jobs:
     name: Welcome
     runs-on: ubuntu-latest
     steps:
+      # Any action that runs from the same repo needs checkout. If the action
+      # Lived in a separate repo this would not be needed
       - uses: actions/checkout@v1
         with:
+          # Shallow clone
           fetch-depth: 1
+      # This is to make it so we don't have to include node_modules
+      # However the package.json must include the dependencies for this action
+      # We might be able to add them as some alternative actionDependencies
+      # Then run it specifically. But that feels too much. If this action
+      # Lived in a separate repo this might be obviated as the size of the
+      # Repo could be arbirtrary
       - run: npm install
+      # This allows you to skip npm run build for every commit, typescript
+      # Works on the fly. Even if the action lived in a separate repo we
+      # Might still want this
       - run: npm run build
+      # This runs the action living in the same repo
       - uses: ./.github/actions/welcome-action
         with:
           who-is-the-welcome-wagon: Octocat
         id: welcome
-      - run: echo The time was ${{ steps.welcome.outputs.time }}
+      - run: echo The message was - ${{ steps.welcome.outputs.message }}
